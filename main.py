@@ -1,7 +1,7 @@
 import os 
 os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 # import matplotlib
-import pandas
+import pandas as pd
 
 file='/bestsellers.txt'
 path=os.getcwd()+file
@@ -23,7 +23,7 @@ for i in content:
     doc.append(i.split('\t'))
 
 # transfer the data to a nice pandas.DataFrame, so data manipulation (count values) gets easier
-df = pandas.DataFrame(doc, columns = ['Title', 'Author', 'Publisher', 'Date', 'Category'])
+df = pd.DataFrame(doc, columns = ['Title', 'Author', 'Publisher', 'Date', 'Category'])
 
 # take the date column as index, for easier filtering later
 df.index = pd.to_datetime(df.Date)
