@@ -1,11 +1,11 @@
 import os 
-os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
+# os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 # import matplotlib
 import pandas as pd
 
-file='/bestsellers.txt'
-path=os.getcwd()+file
-fp=open(path,'r+')
+file = '/bestsellers.txt'
+path = os.getcwd()+file
+fp = open(path,'r+')
 content = fp.read()
 
 ### pharse txt file
@@ -45,4 +45,4 @@ def plot_publishers():
     limit = int(input(f'How many publisher do you want to see? (enter a value between 1 and {len(pub_count)}) '))
     
     # make the barplot
-    pub_count.plot.bar()
+    pub_count[:limit].plot.bar()
