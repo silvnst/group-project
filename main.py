@@ -1,13 +1,16 @@
 import os 
 import matplotlib.pyplot as plt
-
-os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
-# import matplotlib
 import pandas as pd
 
+### get the text file
+# define path
 file = '/bestsellers.txt'
 path = os.getcwd()+file
+
+# open it
 fp = open(path,'r+')
+
+# read the content
 content = fp.read()
 
 ### pharse txt file
