@@ -1,5 +1,7 @@
 import os 
-# os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
+import matplotlib.pyplot as plt
+
+os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 # import matplotlib
 import pandas as pd
 
@@ -33,16 +35,19 @@ df.index = pd.to_datetime(df.Date)
 def plot_publishers():
     
     # select startdate
-    y_from = int(input(f'In which year you want to start? (enter a year between {df.index.min().year} and {df.index.max().year}) '))
+    y_from = str(input(f'In which year you want to start? (enter a year between {df.index.min().year} and {df.index.max().year}) '))
     
     # select enddate
-    y_to = int(input(f'In which year you want to end? (enter a year between {y_from} and {df.index.max().year}) '))
+    y_to = str(input(f'In which year you want to end? (enter a year between {y_from} and {df.index.max().year}) '))
     
     # count bestsellers per publisher
-    pub_count = df[str(y_from):str(y_to)]['Publisher'].value_counts()
+    pub_count = df.loc[y_from:y_to]['Publisher'].value_counts()
     
     # set the limit of how many publisher you want to see
     limit = int(input(f'How many publisher do you want to see? (enter a value between 1 and {len(pub_count)}) '))
     
-    # make the barplot
-    pub_count[:limit].plot.bar()
+    # return barplot
+    return(pub_count[:limit].plot.bar())
+
+plot_publishers()
+plt.show()
