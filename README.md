@@ -9,7 +9,7 @@ With our code "main.py" it is possible, to discover the New York Times Bestselle
       - return the titles that reached #1 in a particular month and year.
       - show every entry in the list by a specific author, once again, based on user input.
       - filter the bestseller list by book title, depending on which title/key word was entered by the user.
-      - returns the top X authors over the entered period of time.
+      - returns the top X publishers over the entered period of time.
   (3) **initiate a simple User-Interface** which let the user decide what happens. 
 
 The code has been created by a diverse and multicultural team, thus different techniques were applied, e.g. to filter data. This on the one hand shows, that we have been experimenting with different approaches and - as often in the real word - that there's more than one way to skin a cat. On the other hand, e.g. different output formats, provide the user with great possibilities to find his or hers individually prefered style.
