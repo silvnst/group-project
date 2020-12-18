@@ -8,4 +8,5 @@ The code is from a diverse and multicultural team, thus different techniques whe
 https://repl.it/@silvnst/group-project#main.py
 
 Have fun with the code and best wishes!
+
 Silvan, Stefanie, Jonas, Anette and Niklas
