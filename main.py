@@ -1,9 +1,10 @@
+# import of the required libraries
 import os
 import tabulate
 import matplotlib.pyplot as plt
 import pandas as pd
 
-### import the text file
+### import of the text file
 # define path
 file = '/bestsellers.txt'
 path = os.getcwd() + file
@@ -14,7 +15,7 @@ fp = open(path, 'r+')
 # read the content
 content = fp.read()
 
-### pharse txt file
+### pharse text file
 
 # lines are separated by '\n'
 content = content.split('\n')
@@ -27,16 +28,15 @@ doc = list()
 for i in content:
     doc.append(i.split('\t'))
 
-# transfer the data to a nice pandas.DataFrame, so data manipulation (count values) gets easier
+# transfer the data to a nice pandas.DataFrame, so data manipulation (e.g. count values) gets easier
 df = pd.DataFrame(
     doc, columns=['Title', 'Author', 'Publisher', 'Date', 'Category'])
 
-# take the date column as index, for easier filtering later -> show just the date and not the time
+# take the date column as index, for easier filtering later
 df.index = pd.to_datetime(df.Date)
 
 # remove the column date, otherwise it would be double
 df.drop('Date', inplace=True, axis=1)
-
 
 ## this is a helper function for year inputs
 def input_year_range(d=df):
@@ -118,8 +118,7 @@ def month_year():
         #Check whether list has entrys
         #If so: print list
         if len(Datelist) > 0:
-            print('\nIn %d/%d the following titles were bestsellers:' % (month,
-                                                                         year))
+            print('\nIn %d/%d the following titles were bestsellers:' % (month, year))
             for i in Datelist:
                 print(', '.join(i))
 
@@ -187,6 +186,7 @@ def plot_publishers():
     return (pub_count[:limit].plot.bar())
 
 
+## a function to clear the screen, for a clean user interface
 def clear():
     # clear screen
     # for windows
@@ -196,8 +196,11 @@ def clear():
     else:
         os.system('clear')
 
-
+# clear screen from any errors
 clear()
+
+### this is the user interface, which consists of a while loop
+
 # choose one of the options:
 while True:
     print("\nWhat would you like to do?\n"
@@ -231,7 +234,7 @@ while True:
         print('\n***Ooops - something went wrong***\n'
               'Did you type the input in the correct format?')
 
-    # this "do you want to continue" message is, that the user can read the output before continuing
+    # this is a "do you want to continue" message, it lets the user read the output before the screen gets cleaned again
     will_to_continue = input('\nDo you want to continue(y/n)? ')
     if will_to_continue.lower() == 'y':
         clear()
