@@ -1,13 +1,44 @@
+import os 
+import pandas as pd
+
+file='/bestsellers2.txt'
+path=os.getcwd()+file
+fp=open(path,'r+')
+content = fp.read()
+
+content = content.split('\n')
+
+doc = list()
+
+for i in content:
+    doc.append(i.split('\t'))
+
+df = pd.DataFrame(doc, columns = ['Title', 'Author', 'Publisher', 'Date', 'Category'])
+df.index = pd.to_datetime(df.Date)
+
+def plot_publishers():
+    y_from = int(input(f'In which year you want to start (enter a year between {df.index.min().year} and {df.index.max().year})? '))
+    y_to = int(input(f'In which year you want to end (enter a year between {y_from} and {df.index.max().year})? '))
+    limit = 10
+    pub_count = df[str(y_from):str(y_to)]['Publisher'].value_counts()[:limit]
+    pub_count.plot.bar()
+
+plot_publishers()
+
+#############
+
+
 import requests
 import json
 
 api = 'wVR4npTI46td45CDTv3uLgyprnbrmpzb'
 url = 'https://api.nytimes.com/svc/books/v3/lists.json'
 x = '/lists/2019-01-20/hardcover-fiction.json'
-r = requests.get(url)
+
 
 headers = {'Authorization':'Bearer ' + api}
-req = requests.request('GET', 'https://httpbin.org/get', headers = headers)
+r = requests.get(url, headers = headers)
+
 
 import os 
 import numpy as np
