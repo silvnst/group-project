@@ -134,7 +134,8 @@ def month_year():
 
 ## function to serach titles by author name (menu option 3)
 def search_for_author():
-    # mutate index for better readability of the output
+    # mutate index for better readability of the output and remove the time
+    df.index = pd.to_datetime(df.index)
     df.index = pd.Series(df.index).dt.date
     #Prompt user to enter an author search term
     s_author = input("Enter the name of an author or part of a name: ")
@@ -152,7 +153,8 @@ def search_for_author():
 
 ## function to serach books by title or part of a title (menu option 4)
 def search_for_title():
-    # mutate index for better readability of the output
+    # mutate index for better readability of the output and remove the time
+    df.index = pd.to_datetime(df.index)
     df.index = pd.Series(df.index).dt.date
     # enter a tile
     s_title = input("Enter a title or a part of a title: ")
@@ -203,41 +205,39 @@ clear()
 
 # choose one of the options:
 while True:
-    print("\nWhat would you like to do?\n"
-          "\n1: Look up a year range\n"
-          "2: Look up month/year\n"
-          "3: Search for author\n"
-          "4: Search for title\n"
-          "5: Plot the Publishers in a chosen time frame\n"
-          "Q: Quit\n")
+  print("\nWhat would you like to do?\n"
+        "\n1: Look up a year range\n"
+        "2: Look up month/year\n"
+        "3: Search for author\n"
+        "4: Search for title\n"
+        "5: Plot the Publishers in a chosen time frame\n"
+        "Q: Quit\n")
 
-    decision = input("Enter your decision: ")
+  decision = input("Enter your decision: ")
 
-    try:
-        if decision == '1':
-            year_range()
-        elif decision == '2':
-            month_year()
-        elif decision == '3':
-            search_for_author()
-        elif decision == '4':
-            search_for_title()
-        elif decision == '5':
-            plot_publishers()
-            plt.show(block=False)
-        elif decision.lower() == 'q':
-            print("Goodbye and have a nice day!")
-            break
-        else:
-            print('please choose one of the given options')
-    except:
-        print('\n***Ooops - something went wrong***\n'
-              'Did you type the input in the correct format?')
+  
+  if decision == '1':
+      year_range()
+  elif decision == '2':
+      month_year()
+  elif decision == '3':
+      search_for_author()
+  elif decision == '4':
+      search_for_title()
+  elif decision == '5':
+      plot_publishers()
+      plt.show(block=False)
+  elif decision.lower() == 'q':
+      print("Goodbye and have a nice day!")
+      break
+  else:
+      print('please choose one of the given options')
 
-    # this is a "do you want to continue" message, it lets the user read the output before the screen gets cleaned again
-    will_to_continue = input('\nDo you want to continue(y/n)? ')
-    if will_to_continue.lower() == 'y':
-        clear()
-    elif will_to_continue.lower() == 'n':
-        clear()
-        break
+
+  # this is a "do you want to continue" message, it lets the user read the output before the screen gets cleaned again
+  will_to_continue = input('\nDo you want to continue(y/n)? ')
+  if will_to_continue.lower() == 'y':
+      clear()
+  elif will_to_continue.lower() == 'n':
+      clear()
+      break
