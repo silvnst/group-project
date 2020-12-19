@@ -15,8 +15,7 @@ With our code "main.py" it is possible, to discover the New York Times Bestselle
 The code has been created by a diverse and multicultural team, thus different techniques were applied, e.g. to filter data. This on the one hand shows, that we have been experimenting with different approaches and - as often in the real word - that there's more than one way to skin a cat. On the other hand, e.g. different output formats, provide the user with great possibilities to find his or hers individually prefered style.
 
 #### Feel free to try the code on our repl.it:
-https://repl.it/@silvnst/group-project#main.py
-Simply press "Run" and follow the instructions!
+https://repl.it/@silvnst/group-project#main.py - simply press "Run" and follow the instructions!
 
 Have fun with the code and best wishes!
 
