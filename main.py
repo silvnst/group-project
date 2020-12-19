@@ -173,6 +173,7 @@ def search_for_title():
 
 ## function to serach publishers with most bestsellers in a year range (menu option 5)
 def plot_publishers():
+  try:
     df.index = pd.to_datetime(df.index)
     # get years
     y_from, y_to = input_year_range()
@@ -186,6 +187,8 @@ def plot_publishers():
         ))
     # return barplot
     return (pub_count[:limit].plot.bar())
+  except:
+    print('It seems like this wasn\'t the correct input. Please try again')
 
 
 ## a function to clear the screen, for a clean user interface
