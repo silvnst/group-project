@@ -17,6 +17,7 @@ The code has been created by a diverse and multicultural team, thus different te
 #### Feel free to try the code on our repl.it:
 https://repl.it/@silvnst/group-project#main.py - simply press "Run" and follow the instructions!
 
+Simply press "Run" and follow the instructions!
 Have fun with the code and best wishes!
 
 Silvan, Stefanie, Jonas, Anette and Niklas
